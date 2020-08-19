@@ -11,9 +11,9 @@ public class WalletTest {
     @Test
     public void newWallet() {
         ArrayList<Card> cardsList = new ArrayList<Card>();
-        cardsList.add(new Card("00000000000000",333,"08/23"));
+        cardsList.add(new Card(Card.brandName.DISCOVER,10000));
         Wallet test = new Wallet(cardsList);
-        assertNotNull(test.getCardsList().get(1));
+        assertEquals(test.getInterest(),100);
 
     }
 }

@@ -1,15 +1,41 @@
 public class Card {
-    private String cardNumber;
-    private int cvv;
-    private String expDate;
+//    private String cardNumber;
+//    private int cvv;
+//    private String expDate;
 
-    public Card(String cardNumber, int cvv, String expDate) {
-        this.cardNumber = cardNumber;
-        this.cvv = cvv;
-        this.expDate = expDate;
+    public enum brandName{
+        VISA,
+        MASTERCARD,
+        DISCOVER
     }
 
-    public String getMaskedCard(){
+    public Card(brandName cardBrand, int balance) {
+        this.cardBrand = cardBrand;
+        this.balance = balance;
+    }
+    private int balance;
+
+    private brandName cardBrand;
+
+    public int getInterest(){
+        int result;
+        switch (cardBrand) {
+            case VISA:
+                result = (int) (balance * 0.1);
+                break;
+            case MASTERCARD:
+                result = (int) (balance * 0.05);
+                break;
+            case DISCOVER:
+                result = (int) (balance * .01);
+                break;
+            default:
+                System.out.println("Brand not set");
+                result = 0;
+        }
+        return result;
+    }
+    /*public String getMaskedCard(){
         return "hello";
     }
 
@@ -35,5 +61,5 @@ public class Card {
 
     public void setExpDate(String expDate) {
         this.expDate = expDate;
-    }
+    }*/
 }

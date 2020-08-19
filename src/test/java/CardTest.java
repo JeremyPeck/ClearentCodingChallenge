@@ -6,9 +6,9 @@ import static org.junit.Assert.*;
 public class CardTest {
 
     @Test
-    public void getMaskedCard() {
-        Card test = new Card("00000000000000", 444,"08/23");
-        assertEquals("**********0000",test.getMaskedCard());
+    public void getInterest() {
+        Card test = new Card(Card.brandName.DISCOVER, 10000);
+        assertEquals(100,test.getInterest());
 
 
     }

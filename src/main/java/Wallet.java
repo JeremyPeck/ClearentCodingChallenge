@@ -15,6 +15,14 @@ public class Wallet {
         this.cardsList = cardsList;
     }
 
+    public int getInterest(){
+        int result = 0;
+        for (Card n : cardsList) {
+            result += n.getInterest();
+        }
+        return result;
+    }
+
     public Wallet() {
         this.cardsList = new ArrayList<Card>();
     }
